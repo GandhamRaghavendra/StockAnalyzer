@@ -102,15 +102,47 @@ No external API's used in this application.
   #### **4. Finding ORB for stock**
    - **Endpoint:-** **`http://localhost:8085/stocks/orb/{minutes}`** (GET)
    - **Description:-** This is for getting the Opening Range Breakout (ORB) for a given period.
-   - **Parameter** We have to pass 
-   - **Request:-**
+   - **Parameter** We have to pass the time interval as minutes, like (15,25,45)
+   - **Request:-** **`http://localhost:8085/stoks/orb/15`**
    - **Response:-** Success: HTTP `200`
+```
+## This is Opening Range Breakout.
+ORB candle generated at2021-02-19T13:30
+```
      
   #### **5. Combining Candles**
    - **Endpoint:-** **`http://localhost:8085/stocks/combination/{minutes}`** (GET)
-   - **Description:-** This is for  combining more than one candle of data to a single
-   - **Request:-**
+   - **Description:-** This is for  combining more than one candle of data into a single
+   - **Parameter** We have to pass the time interval as minutes, like (15,25,45)
+   - **Request:-** **`http://localhost:8085/stoks/combination/60`**
    - **Response:-** Success: HTTP `200`
+```
+[
+    {
+        "stockId": 0,
+        "lastTradeTime": "2021-02-19T09:15:00",
+        "quotationLot": 1,
+        "tradedQty": 6189321,
+        "openInterest": 0,
+        "open": 696.0,
+        "high": 696.0,
+        "low": 675.0,
+        "close": 682.6
+    },
+    {
+        "stockId": 1,
+        "lastTradeTime": "2021-02-19T10:15:00",
+        "quotationLot": 1,
+        "tradedQty": 2603201,
+        "openInterest": 0,
+        "open": 682.5,
+        "high": 684.95,
+        "low": 677.4,
+        "close": 679.5
+    },
+//more.
+]
+```
 
 ## TechStack used
 - SpringBoot
